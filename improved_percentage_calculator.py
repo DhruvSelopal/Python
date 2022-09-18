@@ -16,13 +16,18 @@ else:
         s4 = float(input("Marks of subject 4: "))
         s5 = float(input("Marks of subject 5: "))
         if s1 <= 100 and s2 <= 100 and s3 <= 100 and s4 <= 100 and s5 <= 100:
-            total = s1 + s2 + s3 + s4 + s5
-            percentage = total / 500 * 100
+            if s1 > 0 and s2 > 0 and s3 > 0 and s4 > 0 and s5 >0 :
+                total = s1 + s2 + s3 + s4 + s5
+                percentage = total / 500 * 100
+            else:
+                print("Marks cant be negative")
+                quit()
         else:
-            print("Please enter valid marks")
+            print("Marks cant be greater then 100")
             quit()
     except ValueError:
         print("Invalid value")
+        quit()
     remark = ''
     if percentage - previous_year_percentage.get(name) >= 30:
         remark = 'Outstanding improvement.Keep it up.'
@@ -40,6 +45,6 @@ else:
         total percentage : {percentage}
         {remark}
         ''')
-        
 
-    
+
+
